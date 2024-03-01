@@ -35,8 +35,12 @@ link para baixar mysql: https://dev.mysql.com/downloads/installer/
 
 
 # Pip 
-instalation:  sudo apt install python3-pip
+instalation:
+
+sudo apt install python3-pip
+
 3: pip install mysql-connector-python
+
 4: pip install mysql-connector-python
 
 # criar bd e tabela
