@@ -1,2 +1,5 @@
 # crud-phyton
- simples crud com  python-flask e MySQL
+
+tuturial simple de:
+como fazer crud em python e mysql usando flask
+
