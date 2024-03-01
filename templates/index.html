@@ -1,0 +1,31 @@
+<a href="https://github.com/JLB-101/">GitHub: JLB-101</a> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Funcionários</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <p>By: Julião LB JLB-101</p>
+    <p> <a href="https://github.com/JLB-101/">GitHub: JLB-101</a> </p>
+    <a href="http://"></a>
+    <h1>CRUD de Funcionários</h1>
+    <form action="/adicionar" method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br>
+        <label for="localizacao">Localização:</label>
+        <input type="text" id="localizacao" name="localizacao" required><br>
+        <label for="cargo">Cargo:</label>
+        <input type="text" id="cargo" name="cargo" required><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" required><br>
+        <button type="submit">Adicionar Funcionário</button>
+    </form>
+    <br>
+    <a href="/index-datas">Ver Funcionários</a>
+</body>
+</html>

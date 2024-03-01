@@ -1,0 +1,83 @@
+<a href="https://github.com/JLB-101/">GitHub: JLB-101</a> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Funcionários</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Lista de Funcionários</h1>
+    <div id="atualizar-form" style="display: none;">
+        <h2>Atualizar Funcionário</h2>
+        <form action="/atualizar" method="POST">
+            <input type="hidden" name="id" id="update-id">
+            <label for="nome">Nome:</label>
+            <input type="text" id="update-nome" name="nome" required><br>
+            <label for="localizacao">Localização:</label>
+            <input type="text" id="update-localizacao" name="localizacao" required><br>
+            <label for="cargo">Cargo:</label>
+            <input type="text" id="update-cargo" name="cargo" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="update-email" name="email" required><br>
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="update-telefone" name="telefone" required><br>
+            <button type="submit">Confirmar</button>
+        </form>
+    </div>
+    <a href="/">Voltar</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Localização</th>
+            <th>Cargo</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+        </tr>
+        {% for funcionario in funcionarios %}
+        <tr>
+            <td>{{ funcionario[0] }}</td>
+            <td>{{ funcionario[1] }}</td>
+            <td>{{ funcionario[2] }}</td>
+            <td>{{ funcionario[3] }}</td>
+            <td>{{ funcionario[4] }}</td>
+            <td>{{ funcionario[5] }}</td>
+            <td>
+                <a href="#" class="btn-atualizar" data-id="{{ funcionario[0] }}">Atualizar</a> |
+                <a href="/excluir/{{ funcionario[0] }}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnsAtualizar = document.querySelectorAll('.btn-atualizar');
+            btnsAtualizar.forEach(btn => {
+                btn.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const id = this.getAttribute('data-id');
+                    const row = this.parentNode.parentNode;
+                    const nome = row.cells[1].innerText;
+                    const localizacao = row.cells[2].innerText;
+                    const cargo = row.cells[3].innerText;
+                    const email = row.cells[4].innerText;
+                    const telefone = row.cells[5].innerText;
+
+                    document.getElementById('update-id').value = id;
+                    document.getElementById('update-nome').value = nome;
+                    document.getElementById('update-localizacao').value = localizacao;
+                    document.getElementById('update-cargo').value = cargo;
+                    document.getElementById('update-email').value = email;
+                    document.getElementById('update-telefone').value = telefone;
+
+                    document.getElementById('atualizar-form').style.display = 'block';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
