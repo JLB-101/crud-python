@@ -7,13 +7,16 @@ como fazer crud em python e mysql usando flask
 
 # requisitos:
 Python3: 3.10 +
-pip
-mysql-connector-python
-BD: MySQL 8.3
-navegador
-vscode ou outro editor
 
-drive: 
+pip
+
+mysql-connector-python
+
+BD: MySQL 8.3
+
+navegador web
+
+vscode ou outro editor
 
 
 # linux
